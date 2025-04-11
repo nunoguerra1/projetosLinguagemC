@@ -1,0 +1,45 @@
+#include <stdio.h>
+#define TAM 9
+
+int divisao(int somatorio);
+int resto(int b);
+
+int resto(int b) {
+    if (b == 10) {
+        b = 0;
+    }
+    return b;
+}
+
+int divisao(int somatorio) {
+    int numero = somatorio % 11;
+    return numero;
+}
+
+int main() {
+    char strg[10]; 
+
+    while (gets(strg) != EOF) {  
+        int cpf[TAM];
+        int somab1 = 0, somab2 = 0, b1 = 0, b2 = 0;
+        int count;
+
+        for (count = 0; count < TAM; count++) {
+            cpf[count] = strg[count] - 48; 
+        }
+
+        for (count = 0; count < TAM; count++) {
+            somab1 += cpf[count] * (count + 1);
+        }
+        b1 = divisao(somab1);
+
+        for (count = 0; count < TAM; count++) {
+            somab2 += cpf[count] * (TAM - count);
+        }
+        b2 = divisao(somab2);
+
+        printf("%d%d%d.%d%d%d.%d%d%d-%d%d\n", cpf[0], cpf[1], cpf[2], cpf[3], cpf[4], cpf[5], cpf[6], cpf[7], cpf[8], resto(b1), resto(b2));
+    }
+
+    return 0;
+}
