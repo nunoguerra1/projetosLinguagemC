@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int soma (int somatorio);
+
+int soma (int somatorio){          
+    return somatorio * (somatorio + 1) / 2;
+}              
+
+int main() {
+    int valor = 0;
+    int count;
+    int qntpecas;
+    int somatoriopecas = 0;
+    
+    scanf ("%d", &valor);
+    
+    for (count = 0; count < valor - 1; count++){
+        scanf ("%d", &qntpecas);
+        somatoriopecas += qntpecas;
+    }
+    
+    printf ("%d\n", soma(valor) - somatoriopecas);
+
+    return 0;
+}
