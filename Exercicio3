@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int calculoindice(int contador, int pessoas);
+
+int calculoindice(int contador, int pessoas){
+    return contador % pessoas;
+}
+
+int main() {
+  int pessoas = 0;
+  int count = 0, ultimo = 0;
+  int contador = 0;
+  float lgarrafa = 0, lcuia = 0;
+  char nomes[10][13];
+  
+    scanf("%d", &pessoas);
+    if (pessoas > 0 && pessoas <= 10) {
+        scanf("%f", &lgarrafa);
+        if (lgarrafa > 0.0 && lgarrafa <= 20.0) {
+            scanf("%f", &lcuia);
+            if (lcuia > 0.0 && lcuia < 1.0) {
+                
+                for (count = 0; count < pessoas; count++) {
+                    scanf("%s", nomes[count]);
+                }
+                
+                while ((lgarrafa - lcuia) > 0) {
+                    lgarrafa = lgarrafa - lcuia;
+                    contador++; 
+                }
+                
+                ultimo = calculoindice(contador, pessoas);
+                
+                printf("%s %.1f\n", nomes[ultimo], lgarrafa);
+            }
+        }
+    }
+     
+    return 0;
+}
